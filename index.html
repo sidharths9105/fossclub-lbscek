@@ -22,8 +22,8 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#events">Events</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
         </ul>
     </nav>
 
@@ -60,25 +60,49 @@
     </section>
 
     <section id="events" class="events">
-        <h2>Upcoming Events</h2>
+        <h2>Events</h2>
         <div class="event-cards">
             <div class="event-card">
-                <i class="fas fa-code"></i>
-                <h3>Code Workshop</h3>
-                <p>Learn the basics of programming and version control</p>
-                <a href="#" class="event-button">Register</a>
+                <img src="events/event_6.png" alt="Git & GitHub Workshop">
+                <div class="event-overlay">
+                    <h3>Git & GitHub Workshop</h3>
+                    <p>19th March 2025</p>
+                </div>
             </div>
             <div class="event-card">
-                <i class="fas fa-users"></i>
-                <h3>Community Meetup</h3>
-                <p>Join us for our monthly community gathering</p>
-                <a href="#" class="event-button">Register</a>
+                <img src="events/event_5.png" alt="Git & GitHub Workshop">
+                <div class="event-overlay">
+                    <h3>Git & GitHub Workshop</h3>
+                    <p>12th March 2025</p>
+                </div>
             </div>
             <div class="event-card">
-                <i class="fas fa-project-diagram"></i>
-                <h3>Project Showcase</h3>
-                <p>Showcase your open source projects</p>
-                <a href="#" class="event-button">Register</a>
+                <img src="events/event_4.jpg" alt="Git & GitHub Workshop">
+                <div class="event-overlay">
+                    <h3>Git & GitHub Workshop</h3>
+                    <p>5th & 6th March 2025</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <img src="events/event_3.jpg" alt="Foss club Stall">
+                <div class="event-overlay">
+                    <h3>Foss club Stall</h3>
+                    <p>27th February 2025</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <img src="events/event_2.jpg" alt="Benefits of OpenSource">
+                <div class="event-overlay">
+                    <h3>Benefits of OpenSource</h3>
+                    <p>24th February 2025</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <img src="events/event_1.png" alt="Git & GitHub Workshop">
+                <div class="event-overlay">
+                    <h3>Git & GitHub Workshop</h3>
+                    <p>29th January 2025</p>
+                </div>
             </div>
         </div>
     </section>
@@ -270,85 +294,57 @@
         </div>
     </section>
 
+    <section id="social" class="social">
+        <h2>Connect With Us</h2>
+        <div class="social-container">
+            <div class="social-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <p>Follow our open source projects and contributions</p>
+                <a href="https://github.com/fosslbscek" target="_blank" class="social-link">@fosslbscek</a>
+            </div>
+            <div class="social-card">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p>Stay updated with our professional network</p>
+                <a href="https://www.linkedin.com/company/foss-club-lbscek/" target="_blank" class="social-link">FOSS Club LBS</a>
+            </div>
+            <div class="social-card">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>Check out our event highlights and activities</p>
+                <a href="https://www.instagram.com/fossclub_lbscek/" target="_blank" class="social-link">@fosslbscek</a>
+            </div>
+            <div class="social-card">
+                <i class="fab fa-discord"></i>
+                <h3>Discord</h3>
+                <p>Join our community discussions</p>
+                <a href="https://discord.gg/fosslbscek" target="_blank" class="social-link">FOSS Club LBS</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>FOSS Club</h3>
+                <h3>FOSS Club LBS</h3>
                 <p>LBS College of Engineering Kasaragod</p>
+                <p>Email: foss@lbscek.ac.in</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <h3>Have Questions?</h3>
+                <p>For any queries regarding our website or club activities, please contact us at:</p>
+                <a href="mailto:foss@lbscek.ac.in" class="footer-link">foss@lbscek.ac.in</a>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 FOSS Club LBS College of Engineering Kasaragod. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
 
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
-
-            // Close menu when clicking a link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-        });
-
-        // Existing team scroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const scrollContainer = document.querySelector('.team-scroll');
-            const prevBtn = document.querySelector('.scroll-btn.prev');
-            const nextBtn = document.querySelector('.scroll-btn.next');
-
-            // Scroll left
-            prevBtn.addEventListener('click', () => {
-                scrollContainer.scrollBy({
-                    left: -300,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Scroll right
-            nextBtn.addEventListener('click', () => {
-                scrollContainer.scrollBy({
-                    left: 300,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Show/hide scroll buttons based on scroll position
-            scrollContainer.addEventListener('scroll', () => {
-                prevBtn.style.display = scrollContainer.scrollLeft > 0 ? 'flex' : 'none';
-                nextBtn.style.display = 
-                    scrollContainer.scrollLeft < (scrollContainer.scrollWidth - scrollContainer.clientWidth) 
-                    ? 'flex' : 'none';
-            });
-
-            // Initial button visibility
-            prevBtn.style.display = 'none';
-        });
-    </script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
 </html> 

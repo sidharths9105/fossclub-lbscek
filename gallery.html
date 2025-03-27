@@ -91,18 +91,14 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>FOSS Club</h3>
+                <h3>FOSS Club LBS</h3>
                 <p>LBS College of Engineering Kasaragod</p>
+                <p>Email: foss@lbscek.ac.in</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#events">Events</a></li>
-                    <li><a href="index.html#team">Team</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                </ul>
+                <h3>Have Questions?</h3>
+                <p>For any queries regarding our website or club activities, please contact us at:</p>
+                <a href="mailto:foss@lbscek.ac.in" class="footer-link">foss@lbscek.ac.in</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -110,55 +106,9 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
-
-            // Close menu when clicking a link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-        });
-
-        // Gallery filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-
-                    const filterValue = button.getAttribute('data-filter');
-
-                    galleryItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
 </html> 

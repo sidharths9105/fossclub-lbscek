@@ -250,6 +250,7 @@ section h2::after {
 /* Events Section */
 .events {
     padding: 5rem 10%;
+    background-color: var(--light-color);
 }
 
 .events h2 {
@@ -263,39 +264,61 @@ section h2::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .event-card {
-    background-color: white;
-    padding: 2.5rem;
+    position: relative;
     border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
     transition: all 0.3s ease;
 }
 
-.event-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+.event-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.event-card i {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
+.event-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
-.event-card h3 {
+.event-card:hover img {
+    transform: scale(1.1);
+}
+
+.event-card:hover .event-overlay {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6));
+}
+
+.event-overlay h3 {
     font-family: var(--heading-font);
     font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
 }
 
-.event-card p {
+.event-overlay p {
     font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .event-button {
@@ -617,7 +640,7 @@ section h2::after {
 footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 4rem 10% 1rem;
+    padding: 3rem 5% 1rem;
 }
 
 .footer-content {
@@ -625,45 +648,76 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-section h3 {
     font-family: var(--heading-font);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
 }
 
 .footer-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: #ccc;
+    margin-bottom: 0.5rem;
 }
 
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 1rem;
-}
-
-.footer-section a {
-    color: #ccc;
+.footer-link {
+    color: var(--primary-color);
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-.footer-section a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
+.footer-link:hover {
+    color: #27ae60;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 3% 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        padding: 1.5rem 2% 1rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
 
 /* Enhanced Responsive Design */
@@ -981,5 +1035,124 @@ footer {
 @media (max-width: 480px) {
     .photos-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Social Media Section */
+.social {
+    padding: 5rem 5%;
+    background-color: var(--light-color);
+}
+
+.social h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-color);
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+}
+
+.social-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.social-card i {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-card:hover i {
+    transform: scale(1.1);
+}
+
+.social-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.social-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .social {
+        padding: 4rem 3%;
+    }
+
+    .social-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .social-card {
+        padding: 1.5rem;
+    }
+
+    .social-card i {
+        font-size: 2.5rem;
+    }
+
+    .social-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-container {
+        grid-template-columns: 1fr;
+    }
+
+    .social-card {
+        padding: 1.2rem;
+    }
+
+    .social-card i {
+        font-size: 2rem;
+    }
+
+    .social-link {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 } 
