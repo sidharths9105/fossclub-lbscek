@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - FOSS Club LBS College of Engineering Kasaragod</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="FOSS-image.png" alt="FOSS Club Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <section class="gallery-page">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="workshops">Workshops</button>
+            <button class="filter-btn" data-filter="hackathons">Hackathons</button>
+            <button class="filter-btn" data-filter="meetups">Meetups</button>
+            <button class="filter-btn" data-filter="conferences">Conferences</button>
+        </div>
+        <div class="gallery-grid">
+            <!-- Workshop Images -->
+            <div class="gallery-item" data-category="workshops">
+                <img src="gallery1.jpg" alt="Git Workshop">
+                <div class="gallery-overlay">
+                    <h3>Git & GitHub Workshop</h3>
+                    <p>March 2024</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="workshops">
+                <img src="gallery5.jpg" alt="Linux Workshop">
+                <div class="gallery-overlay">
+                    <h3>Linux Workshop</h3>
+                    <p>February 2024</p>
+                </div>
+            </div>
+            <!-- Hackathon Images -->
+            <div class="gallery-item" data-category="hackathons">
+                <img src="gallery2.jpg" alt="Open Source Hackathon">
+                <div class="gallery-overlay">
+                    <h3>Open Source Hackathon</h3>
+                    <p>January 2024</p>
+                </div>
+            </div>
+            <!-- Meetup Images -->
+            <div class="gallery-item" data-category="meetups">
+                <img src="gallery3.jpg" alt="Community Meetup">
+                <div class="gallery-overlay">
+                    <h3>Community Meetup</h3>
+                    <p>December 2023</p>
+                </div>
+            </div>
+            <!-- Conference Images -->
+            <div class="gallery-item" data-category="conferences">
+                <img src="gallery4.jpg" alt="FOSS Conference">
+                <div class="gallery-overlay">
+                    <h3>FOSS Conference 2024</h3>
+                    <p>November 2023</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="conferences">
+                <img src="gallery6.jpg" alt="Open Source Day">
+                <div class="gallery-overlay">
+                    <h3>Open Source Day</h3>
+                    <p>October 2023</p>
+                </div>
+            </div>
+            <!-- Add more gallery items as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FOSS Club</h3>
+                <p>LBS College of Engineering Kasaragod</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="index.html#team">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FOSS Club LBS College of Engineering Kasaragod. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+
+        // Gallery filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
