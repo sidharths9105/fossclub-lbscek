@@ -19,11 +19,11 @@
             <i class="fas fa-bars"></i>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#events">Events</a></li>
             <li><a href="#team">Team</a></li>
-            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="#social">Connect</a></li>
         </ul>
     </nav>
 
@@ -243,57 +243,6 @@
         </div>
     </section>
 
-    <section id="photos" class="photos">
-        <h2>Gallery</h2>
-        <div class="photos-grid">
-            <div class="photo-card">
-                <img src="gallery1.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Workshop 2024</h3>
-                    <p>Git & GitHub Workshop</p>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="gallery2.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Hackathon</h3>
-                    <p>Open Source Hackathon</p>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="gallery3.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Meetup</h3>
-                    <p>Community Meetup</p>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="gallery4.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Conference</h3>
-                    <p>FOSS Conference 2024</p>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="gallery5.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Workshop</h3>
-                    <p>Linux Workshop</p>
-                </div>
-            </div>
-            <div class="photo-card">
-                <img src="gallery6.jpg" alt="FOSS Event">
-                <div class="photo-overlay">
-                    <h3>Event</h3>
-                    <p>Open Source Day</p>
-                </div>
-            </div>
-        </div>
-        <div class="view-more">
-            <a href="gallery.html" class="view-more-btn">View More Photos</a>
-        </div>
-    </section>
-
     <section id="social" class="social">
         <h2>Connect With Us</h2>
         <div class="social-container">
@@ -319,7 +268,7 @@
                 <i class="fab fa-discord"></i>
                 <h3>Discord</h3>
                 <p>Join our community discussions</p>
-                <a href="https://discord.gg/fosslbscek" target="_blank" class="social-link">FOSS Club LBS</a>
+                <a href="https://discord.gg/SY6PDHRPQx" target="_blank" class="social-link">FOSS Club LBS</a>
             </div>
         </div>
     </section>
@@ -327,24 +276,59 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>FOSS Club LBS</h3>
+                <h3>FOSS Club</h3>
                 <p>LBS College of Engineering Kasaragod</p>
-                <p>Email: foss@lbscek.ac.in</p>
+                <p>fossclub.lbscek@gmail.com</p>
             </div>
             <div class="footer-section">
-                <h3>Have Questions?</h3>
-                <p>For any queries regarding our website or club activities, please contact us at:</p>
-                <a href="mailto:foss@lbscek.ac.in" class="footer-link">foss@lbscek.ac.in</a>
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="https://github.com/fosslbscek" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/company/foss-club-lbscek" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/foss_club_lbscek" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 FOSS Club LBS College of Engineering Kasaragod. All rights reserved.</p>
+            <p>&copy; 2024 FOSS Club - LBS College of Engineering Kasaragod. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
-    <!-- Custom Script -->
+    <script>
+        // Scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const prevBtn = document.querySelector('.scroll-btn.prev');
+            const nextBtn = document.querySelector('.scroll-btn.next');
+            const teamScroll = document.querySelector('.team-scroll');
+
+            if (prevBtn && nextBtn && teamScroll) {
+                prevBtn.addEventListener('click', () => {
+                    teamScroll.scrollBy({
+                        left: -300,
+                        behavior: 'smooth'
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    teamScroll.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                });
+
+                teamScroll.addEventListener('scroll', () => {
+                    const isAtStart = teamScroll.scrollLeft === 0;
+                    const isAtEnd = teamScroll.scrollLeft + teamScroll.clientWidth >= teamScroll.scrollWidth - 1;
+
+                    prevBtn.style.display = isAtStart ? 'none' : 'flex';
+                    nextBtn.style.display = isAtEnd ? 'none' : 'flex';
+                });
+
+                // Initial button visibility
+                prevBtn.style.display = 'none';
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html> 
