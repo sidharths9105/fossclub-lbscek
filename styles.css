@@ -90,7 +90,11 @@ body {
     display: none;
     font-size: 1.8rem; /* Increase icon size for better visibility */
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--dark-color);
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001; /* Ensure it appears above other elements */
 }
 
 @media (max-width: 768px) {
@@ -103,26 +107,23 @@ body {
     }
 
     .nav-links {
+        display: none; /* Initially hide the menu */
+        flex-direction: column;
+        align-items: center;
         position: fixed;
         top: 70px;
         left: 0;
         width: 100%;
         height: calc(100vh - 70px);
         background: var(--nav-bg);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        transform: translateY(-100%); /* Hide menu off-screen */
     }
 
     .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+        transform: translateY(0); /* Slide menu into view */
+        display: flex; /* Show the menu when active */
     }
 
     .menu-toggle {
@@ -1043,22 +1044,35 @@ footer {
     font-size: 1.8rem; /* Increase icon size for better visibility */
     cursor: pointer;
     color: var(--dark-color);
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1001; /* Ensure it appears above other elements */
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
+        display: block; /* Show menu toggle on smaller screens */
     }
 
     .nav-links {
-        display: none;
+        display: none; /* Initially hide the menu */
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--nav-bg);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        transform: translateY(-100%); /* Hide menu off-screen */
     }
 
     .nav-links.active {
-        display: flex;
+        transform: translateY(0); /* Slide menu into view */
+        display: flex; /* Show the menu when active */
     }
 }
 

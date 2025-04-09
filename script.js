@@ -5,22 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('active'); // Toggle the active class
+            menuToggle.classList.toggle('active'); // Add active state to the toggle button
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
+                navLinks.classList.remove('active'); // Remove active class
+                menuToggle.classList.remove('active'); // Remove active state from the toggle button
             }
         });
 
         // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                navLinks.classList.remove('active'); // Remove active class
+                menuToggle.classList.remove('active'); // Remove active state from the toggle button
             });
         });
+    } else {
+        console.error('Menu toggle or nav links not found in the DOM.');
     }
 });
 
@@ -115,4 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', setActiveLink);
     // Set active link on page load
     setActiveLink();
-}); 
+});
