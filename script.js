@@ -97,3 +97,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set active link on page load
     setActiveLink();
 });
+
+// Scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const prevBtn = document.querySelector('.scroll-btn.prev');
+            const nextBtn = document.querySelector('.scroll-btn.next');
+            const teamScroll = document.querySelector('.team-scroll');
+
+            if (prevBtn && nextBtn && teamScroll) {
+                prevBtn.addEventListener('click', () => {
+                    teamScroll.scrollBy({
+                        left: -300,
+                        behavior: 'smooth'
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    teamScroll.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                });
+
+                teamScroll.addEventListener('scroll', () => {
+                    const isAtStart = teamScroll.scrollLeft === 0;
+                    const isAtEnd = teamScroll.scrollLeft + teamScroll.clientWidth >= teamScroll.scrollWidth - 1;
+
+                    prevBtn.style.display = isAtStart ? 'none' : 'flex';
+                    nextBtn.style.display = isAtEnd ? 'none' : 'flex';
+                });
+
+                // Initial button visibility
+                prevBtn.style.display = 'none';
+            }
+        });

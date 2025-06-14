@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="FOSS-image.png" alt="FOSS Club Logo">
+            <img src="FOSS-LOGO.png" alt="FOSS Club Logo">
         </div>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -67,6 +67,14 @@
         <h2>Events</h2>
         <div class="event-cards">
             <!-- Latest to oldest events -->
+             <div class="event-card">
+                <img src="events/foss-meetup.jpg" alt="foss-meetup">
+                <div class="event-overlay-lay"><p>Upcoming Event</p></div>
+                <div class="event-overlay">
+                    <h3>FOSS-MEETUP</h3>
+                    <p>28th June 2025</p>
+                </div>
+            </div>
             <div class="event-card">
                 <img src="events/19-03-2025.png" alt="Git & GitHub Workshop">
                 <div class="event-overlay">
@@ -351,44 +359,6 @@
             <p>&copy; 2025 FOSS Club - LBS College of Engineering Kasaragod. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Scroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const prevBtn = document.querySelector('.scroll-btn.prev');
-            const nextBtn = document.querySelector('.scroll-btn.next');
-            const teamScroll = document.querySelector('.team-scroll');
-
-            if (prevBtn && nextBtn && teamScroll) {
-                prevBtn.addEventListener('click', () => {
-                    teamScroll.scrollBy({
-                        left: -300,
-                        behavior: 'smooth'
-                    });
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    teamScroll.scrollBy({
-                        left: 300,
-                        behavior: 'smooth'
-                    });
-                });
-
-                teamScroll.addEventListener('scroll', () => {
-                    const isAtStart = teamScroll.scrollLeft === 0;
-                    const isAtEnd = teamScroll.scrollLeft + teamScroll.clientWidth >= teamScroll.scrollWidth - 1;
-
-                    prevBtn.style.display = isAtStart ? 'none' : 'flex';
-                    nextBtn.style.display = isAtEnd ? 'none' : 'flex';
-                });
-
-                // Initial button visibility
-                prevBtn.style.display = 'none';
-            }
-        });
-
-        
-    </script>
     <script src="script.js"></script>
 </body>
 </html>
