@@ -612,7 +612,7 @@ section h2::after {
 
 .projects h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
     color: var(--dark-color);
 }
@@ -643,27 +643,40 @@ section h2::after {
 }
 
 .project-card {
-    width: 300px; /* Fixed width for uniform size */
-    height: 400px; /* Fixed height for uniform size */
+    width: 350px; /* Fixed width for uniform size */
+    height: 460px; /* Fixed height for uniform size */
     margin: 15px auto;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     justify-content: space-between; /* Space out content */
     text-align: center;
     
 }
+.project-icon {
+    
+    width: 48px;
+    height: 48px;
+    margin:3px auto;
 
+}
 .project-card h2 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
 .project-card p {
     font-size: 1rem;
-    flex-grow: 1; /* Allow description to take up available space */
+    flex-grow: 1;
+    margin-bottom: 10px; /* Allow description to take up available space */
+}
+.description {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 10px 0;
 }
 
 .project-link {
@@ -675,6 +688,7 @@ section h2::after {
     border-radius: 5px; /* Rounded corners for button */
     display: inline-block;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .project-link:hover {
@@ -683,7 +697,10 @@ section h2::after {
 }
 
 .project-link i {
-    margin-right: 5px; /* Add spacing between icon and text */
+    margin-right: 6px;
+    width:5px;
+    height:5px;
+     /* Add spacing between icon and text */
 }
 
 /* Contact Section */
@@ -1242,3 +1259,6 @@ footer {
 .team-card:hover::before, .social-card:hover::before, .event-card:hover::before {
     transform: translateX(100%);
 }
+
+
+
