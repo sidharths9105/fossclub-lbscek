@@ -643,8 +643,8 @@ section h2::after {
 }
 
 .project-card {
-    width: 350px; /* Fixed width for uniform size */
-    height: 460px; /* Fixed height for uniform size */
+    width: 360px; /* Fixed width for uniform size */
+    height: 480px; /* Fixed height for uniform size */
     margin: 15px auto;
     padding: 20px;
     border: 1px solid #ddd;
